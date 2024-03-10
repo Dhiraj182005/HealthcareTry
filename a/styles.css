@@ -1,0 +1,466 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+   box-sizing:border-box;
+   background-image: url('background.jpg');
+   background-size: cover; 
+   background-position: 1080 1920;
+   background-repeat: no-repeat;
+
+    
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #1d4e89;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #00587a;
+}
+
+#searchInput {
+    width: 70%;
+    padding: 0.5em;
+    border-radius: 20px;
+}
+
+#error-message {
+    color: red;
+    font-style: italic;
+    display: none;
+}
+
+#searchResults {
+    padding: 1em;
+    text-align: center;
+    
+}
+
+#medicineDetails {
+    padding: 1em;
+    text-align: center;
+    color: #000000;
+    background-color: #00577a18;
+    text-shadow: 20px solid black;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-item {
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    background-color: #f2f2f2;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+.result-item:hover {
+    background-color: #aab4aa;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #af4c4c;
+}
+
+/* Your existing styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #00b2ca;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0px 1px 2px 0px rgb(0, 0, 0, 0.219),
+            1px 2px 4px 0px rgba(0, 0, 0, 0.219),
+            2px 4px 8px 0px rgb(0, 0, 0, 0.219),
+            2px 4px 16px 0px rgb(0, 0, 0, 0.219);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Additional styles for the Health Assistant section */
+#healthAssistantSection {
+    padding: 1em;
+    text-align: center;
+}
+
+/* Add this inside your existing CSS for the #healthAssistantSection */
+#healthAssistantSection {
+    padding: 1em;
+    text-align: center;
+}
+
+#chatContainer {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#chatMessages {
+    overflow-y: auto;
+    max-height: 300px;
+    padding-bottom: 10px;
+}
+
+#userInput {
+    width: 80%;
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border-radius: 20px;
+}
+
+.button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    ;
+  }
+  
+  .button1:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+  
+  .button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+  }
+  
+  .button4:hover {background-color: #e7e7e7;}
+
+
+
+#head{
+    color: #fff;
+}
+
+.pill-button {
+    background-color: #1d4e89;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Adjust the border-radius for the pill shape */
+    margin: 5px; /* Add margin for spacing */
+}
+
+.medicine-button {
+    background-color: #1d4e89;
+}
+
+.health-assistant-button {
+    background-color: #1d4e89;
+    color: white;
+}
+
+
+
+.feedback {
+    padding: 1rem;
+    height: 25%;
+    width: 40%;
+    background-color: #ffffff;
+    border-radius: .5rem;
+    box-shadow: 0 0 2rem rgb(0, 0, 0);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wrapper {
+    margin: 2rem 0;
+}
+
+.text{
+    margin-bottom: 5rem;
+    font-size: 1em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.emoji{
+    font-size: 1.3em;
+    display: flex;
+    justify-content: center;
+}
+
+.emoji > div :not(:first-child){
+    margin-left: 1em;
+
+}
+
+.emoji > div{
+    cursor: pointer;
+    transition: transform .2s ease-in;
+}
+
+
+.emoji > div:hover{
+    transform: scale(1.4);
+}
+
+.textarea{
+    width: 100%;
+    display: block;
+    background-color: rgb(253, 253, 253);
+    border: none;
+    resize: none;
+    border: none;
+    outline: none;
+    height: 0;
+    opacity: 0;
+    transition: all .6s cubic-bezier(0.075,0.82,0.1651);
+}
+
+.textarea--active{
+    padding: 1rem;
+    opacity: 1;
+    height: 6rem;
+
+}
+
+.btn{
+    text-decoration: none;
+    color: #eee;
+    padding: .4rem 1rem;
+    border-radius: 4px;
+    background-color: purple;
+    position: absolute;
+    right: .5rem; 
+    bottom: .5rem;
+    display: none;
+
+}
+
+.btn--active{
+    display: inline-block;
+}
+
+/* Style for the feedback button */
+.btn-feedback {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #521262;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+/* Style for the feedback button */
+.btn-feedback {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #521262;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+/* Style for the feedback form */
+.feedback {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px; /* Adjust width as needed */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+.feedback-active {
+    display: block; /* Show when active */
+}
+
+.feedback .wrapper {
+    margin-bottom: 20px;
+}
+
+.feedback .text {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #521262;
+}
+
+.feedback .emoji {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feedback .emoji div {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.feedback .emoji div:not(:first-child) {
+    margin-left: 10px;
+}
+
+.feedback .emoji div:hover {
+    transform: scale(1.2);
+}
+
+.feedback .textarea {
+    width: 100%;
+    height: 100px; /* Adjust height as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.feedback .btn {
+    background-color: #521262;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.feedback .btn:hover {
+    background-color: #3d0953;
+}
+
+
+/* Style for the "Speak" button */
+/* Style for the "Speak" button */
+#speakButton {
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Adjust the border-radius for rounded corners */
+    margin-right: 5px; /* Add margin to separate from the "Stop Speaking" button */
+}
+
+
+/* Style for the "Stop Speaking" button */
+#stopButton {
+    background-color: #FF0000; /* Red color for emphasis */
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Adjust the border-radius for rounded corners */
+    display: none; /* Initially hidden */
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .img1{
+    float: left;
+  }
+  .info1{
+    float: right;
+  }
+  .subinfo1{
+    float: right;
+  }

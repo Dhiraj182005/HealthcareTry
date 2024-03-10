@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div style="padding-left:16px">
+        </div>
+
+        <div class="main-content">
+            <header>
+                <h1>Healthcare Assistant</h1>
+                <div class="pill-container">
+                    <button onclick="showMedicineInformation()" class="pill-button medicine-button">Medicine
+                        Information</button>
+                    <button onclick="showHealthAssistant()" class="pill-button health-assistant-button">Health
+                        Assistant</button>
+                </div>
+            </header>
+
+
+            <section id="medicineSection">
+                <center>
+                    <h2 id="head">Medicine Information</h2>
+                </center>
+                <input type="text" id="searchInput" placeholder="Search for a medicine">
+                <button onclick="searchMedicine()">Search</button>
+                <button onclick="toggleSpeaking()" id="speakButton">Speak</button>
+                <p id="searchErrorMessage" class="error-message">Give medicine name</p>
+
+                <section id="searchResults">
+                    <!-- Display search results here using JavaScript -->
+                </section>
+
+                <section id="medicineDetails" class="hidden">
+                    <!-- Display detailed medicine information here using JavaScript -->
+                </section>
+            </section>
+
+
+
+
+            <section id="healthAssistantSection" class="hidden">
+                <h2 id="head">Health Assistant</h2>
+                <div id="chatContainer">
+                    <div id="chatMessages"></div>
+                    <input type="text" id="userInput" placeholder="Type your health issue...">
+                    <button onclick="sendUserMessage()">Send</button>
+                </div>
+            </section>
+
+            </section>
+
+
+            <a href="#" id="feedbackButton" class="btn-feedback">Feedback</a>
+
+
+            <div class="feedback">
+                <div class="wrapper">
+                    <p class="text">How Would You Rate This Website?</p>
+                    <div class="emoji">
+                        <div>😣</div>
+                        <div>🙁</div>
+                        <div>😑</div>
+                        <div>🙂</div>
+                        <div>😀</div>
+
+                    </div>
+                </div>
+
+                <textarea class="textarea" cols="30" rows="3" placeholder="Write your opinion!"></textarea>
+
+                <a href="#" class="btn">Send</a>
+            </div>
+
+                </div>
+            </section>
+
+        
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

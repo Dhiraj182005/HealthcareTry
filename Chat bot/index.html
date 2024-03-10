@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="chat-window">
+      <div class="main-title"><h2><bold>Health Care</bold></h2></div>
+      <div id="chat-messages"></div>
+      <form id="chat-form">
+        <input
+          type="text"
+          id="chat-input"
+          autocomplete="off"
+          placeholder="Type your message here"
+          required
+        />
+        <button type="submit">Send</button>
+      </form>
+      <div id="translation-box" class="chat-box"></div>
+      <div id="text-to-speech-box" class="chat-box"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+    <script>
+      const form = document.getElementById("chat-form");
+      const input = document.getElementById("chat-input");
+      const messages = document.getElementById("chat-messages");
+      const translationBox = document.getElementById("translation-box");
+      const textToSpeechBox = document.getElementById("text-to-speech-box");
+      const apiKey = "Your Open AI API";
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const message = input.value;
+        messages.innerHTML += `<div class="message user-message">
+          <img src="C:/Users/Dhiraj/OneDrive/Desktop/MEGA PROJECT/user.jpg"> <span>${message}</span>
+        </div>`;
+
+        const response = await axios.post(
+          "https://api.openai.com/v1/completions",
+          {
+            prompt: `act as you are a medicine professional so Give Medicine Information in simple words as anyone can understand it and in points  and new points on new line like Uses, Side effects and Precautions and if it is not a medicine name say "Enter Medicine Name" here is the medicine name enter by the user = ${message}. and "Uses, Side effect, Precautions" in new line and bold`,
+            model: "gpt-3.5-turbo-instruct",
+            temperature: 0,
+            max_tokens: 500,
+            top_p: 1,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.0,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${apiKey}`,
+            },
+          }
+        );
+
+        const chatbotResponse = response.data.choices[0].text;
+
+        // Format medicine information into paragraphs
+        const paragraphs = chatbotResponse.split('\n');
+        const formattedParagraphs = paragraphs.filter(paragraph => paragraph.trim() !== '');
+
+        // Display the formatted paragraphs in one chat box
+        const formattedMessage = formattedParagraphs.join('<br>');
+        messages.innerHTML += `<div class="message bot-message">
+          ${formattedMessage}
+        </div>`;
+
+        // Translate the medicine information to Hindi
+        const translate = require('google-translate-api');
+        translate(chatbotResponse, { to: 'hi' })
+          .then(translation => {
+            const hindiTranslation = translation.text;
+            translationBox.innerHTML = `<div class="message bot-message">
+              <p>Translated to Hindi:</p>
+              <p>${hindiTranslation}</p>
+            </div>`;
+          })
+          .catch(error => {
+            console.error('Translation error:', error);
+          });
+
+        // Read out the medicine information using text-to-speech
+        speakText(chatbotResponse);
+      });
+
+      // Function to speak text using the Web Speech API
+      function speakText(text) {
+        const speechSynthesis = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(text);
+        speechSynthesis.speak(utterance);
+        
+        // Display text-to-speech in a separate chat box
+        textToSpeechBox.innerHTML = `<div class="message bot-message">
+          <p>Text-to-Speech:</p>
+          <p>${text}</p>
+        </div>`;
+      }
+    </script>
+  </body>
+</html>
